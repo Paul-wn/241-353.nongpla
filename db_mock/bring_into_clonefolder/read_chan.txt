@@ -1,0 +1,32 @@
+1. git clone https://github.com/andrejnevesjr/airflow-spark-minio-postgres.git (เราไม่สามารถ push ขึ้นให้ได้ต้อง clone เอง)
+
+2. ใช้ docker-compose.yml โฟลเดอร์นี้แทน git clone
+
+3. เอา day_type_collecting, mot_collecting, rain_collecting ไปไว้ใน src/spark/application
+
+4. เอา weekly_data_collecting.py ไปไว้ใน src/dags
+
+5. docker compose up --build -d (ถ้ามีอันเก่าอยู่ลบออกก่อนนะ)
+
+ุ6. รันพวกนี้ก่อน
+
+docker exec -it airflow bash 
+-> pip install openmeteo-requests requests-cache retry-requests
+-> exit 
+
+docker exec -it spark-worker bash 
+-> pip install openmeteo-requests requests-cache retry-requests
+-> exit 
+
+docker exec -it spark bash 
+-> pip install openmeteo-requests requests-cache retry-requests
+-> exit 
+
+
+ุ7. dags ที่ใช้คือ weekly-mot-rain-data-collecting-v2 (ถ้าจะรัน ต้องมี postgres table ก่อนนะ)
+    - ต้องเตรียม table postgres ก่อน  
+    7.1 รัน table.py
+    7.2 รัน create_baseline.ipynb 
+    หมายเหตุ: ถ้ามี error คงเป็นพวก path ผิด หรือ libs ที่ยังไม่ติดตั้ง แต่ละเครื่องไม่เหมือนกัน แต่เราว่าไม่น่าจะมีปัญหา มั้ง
+
+### Part ของ อัปเดต data weekly
