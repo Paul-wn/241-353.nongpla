@@ -1,0 +1,15 @@
+git clone https://github.com/andrejnevesjr/airflow-spark-minio-postgres.git
+
+
+
+docker exec -it airflow bash 
+-> pip install openmeteo-requests requests-cache retry-requests
+-> exit 
+
+docker exec -it spark-worker bash 
+-> pip install openmeteo-requests requests-cache retry-requests
+-> exit 
+
+docker exec -it spark bash 
+-> pip install openmeteo-requests requests-cache retry-requests
+-> exit 
