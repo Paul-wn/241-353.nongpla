@@ -1,0 +1,9 @@
+metric,value
+Total Passengers,2343247.71875
+Daily Average,78108.2578125
+Maximum Day,79017.21875
+Minimum Day,77213.0
+Standard Deviation,554.493896484375
+Model MAE,2291.859332997312
+Model MAPE,3.4578698614295735
+Model R2,0.9623296205425614

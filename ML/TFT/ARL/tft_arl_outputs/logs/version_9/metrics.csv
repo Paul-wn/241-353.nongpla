@@ -1,0 +1,3 @@
+epoch,lr-Adam,step,train_loss_step
+,0.0003,0,
+0,,9,11943.6025390625
